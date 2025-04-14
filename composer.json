@@ -5,6 +5,7 @@
   "require": {
     "php": "^8.1",
     "psr/log": "^3|^2|^1",
+    "nikic/php-parser": "^5.3.0",
     "tourze/php-packer-config": "0.0.*"
   },
   "require-dev": {
