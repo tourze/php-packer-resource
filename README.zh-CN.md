@@ -7,47 +7,47 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/tourze/php-packer-resource.svg?style=flat-square)](https://scrutinizer-ci.com/g/tourze/php-packer-resource)
 [![Total Downloads](https://img.shields.io/packagist/dt/tourze/php-packer-resource.svg?style=flat-square)](https://packagist.org/packages/tourze/php-packer-resource)
 
-A resource management component for PHP Packer, responsible for copying, mapping, and processing resource files.
+PHP Packer 的资源处理组件，负责资源文件的复制、映射和处理。
 
-## Features
+## 功能特性
 
-- Copy and move resource files
-- Path mapping for resource files
-- Resource reference detection and extraction (AST-based)
-- Output directory management
+- 资源文件的复制和移动
+- 资源文件路径映射
+- 资源引用检测和提取（基于 AST）
+- 输出目录管理
 
-## Installation
+## 安装说明
 
 ```bash
 composer require tourze/php-packer-resource
 ```
 
-## Quick Start
+## 快速开始
 
-### Basic Usage
+### 基本用法
 
 ```php
 use PhpPacker\Config\Configuration;
 use PhpPacker\Resource\ResourceManager;
 use Psr\Log\LoggerInterface;
 
-// Create resource manager
+// 创建资源管理器
 $config = new Configuration('path/to/config.php', $logger);
 $resourceManager = new ResourceManager($config, $logger);
 
-// Copy resource files
+// 复制资源文件
 $resourceManager->copyResources();
 
-// Clean output directory
+// 清理输出目录
 $resourceManager->cleanOutputDirectory();
 ```
 
-### Example: Resource Section in Config
+### 配置文件中的资源部分示例
 
 ```php
 // config.php
 return [
-    // ... other settings ...
+    // ... 其他配置 ...
     'assets' => [
         'src/assets/images/logo.png' => 'assets/images/logo.png',
         'src/assets/css/style.css' => 'assets/css/style.css',
@@ -56,22 +56,22 @@ return [
 ];
 ```
 
-## Resource Manager Methods
+## 资源管理器方法
 
-| Method | Description |
+| 方法 | 说明 |
 |------|------|
-| copyResources() | Copy all configured resource files to output directory |
-| cleanOutputDirectory() | Clean output directory (if enabled in config) |
-| copyResource(string $source, string $target) | Copy a single resource file |
-| isResourceFile(string $file) | Check if a file is a resource file |
-| findUsedResources(array $stmts) | Find used resources from AST |
+| copyResources() | 复制所有配置的资源文件到输出目录 |
+| cleanOutputDirectory() | 清理输出目录（如果配置中启用） |
+| copyResource(string $source, string $target) | 复制单个资源文件 |
+| isResourceFile(string $file) | 检查文件是否为资源文件 |
+| findUsedResources(array $stmts) | 从 AST 语法树中查找使用的资源 |
 
-## Contribution Guide
+## 贡献指南
 
-- Please describe the issue background and reproduction steps in detail before submitting an Issue
-- PRs must pass all tests
-- Follow PSR coding standards
+- 提交 Issue 前请详细描述问题背景和复现步骤
+- PR 需保证通过所有测试
+- 遵循 PSR 代码规范
 
-## License
+## 版权和许可
 
 MIT
